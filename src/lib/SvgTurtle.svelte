@@ -18,6 +18,7 @@ import { afterUpdate } from "svelte";
 
     export let d = 10;
     export let b = Math.PI;
+    export let movable = false;
 
     
     let pathD = "";
@@ -93,10 +94,16 @@ import { afterUpdate } from "svelte";
         ty += dy;
     }
 
+    function svgMove(event: MouseEvent) {
+        if (movable) {
+            tx += event.movementX;
+            ty += event.movementY;
+        }
+    }
 
 </script>
 
-<svg bind:this={svg} on:wheel={svgScroll} {width} {height}>
+<svg bind:this={svg} on:wheel={svgScroll}  on:mousemove={svgMove} on:mousedown={() => movable = true} on:mouseup={() => movable = false} {width} {height}>
     <path bind:this={path} d={pathD} transform={`translate(${tx}, ${ty})`} fill=transparent stroke=black/>
 </svg>
 
