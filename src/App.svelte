@@ -19,5 +19,8 @@ import D0L from "./lib/D0L.svelte";
     box-sizing: border-box;
   }
 
+  main {
+    background: whitesmoke;
+  }
 
 </style>

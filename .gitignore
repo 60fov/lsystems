@@ -7,6 +7,7 @@ npm-debug.log*
 node_modules
 
 # Editor directories and files
+dist/
 .vscode/*
 !.vscode/extensions.json
 .DS_Store
